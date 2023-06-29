@@ -1,0 +1,13 @@
+.header-container {
+    /* grid-row: 1;
+    grid-column-start: 2;
+    grid-column-end: 3; */
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: brown;
+    height: 30px;
+}

@@ -1,0 +1,10 @@
+.nav-bar-container {
+    /* grid-row-start: 1;
+    grid-row-end: 2; */
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    background-color: blueviolet;
+}
