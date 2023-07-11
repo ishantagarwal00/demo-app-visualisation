@@ -1,0 +1,120 @@
+.configuration-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 10000;
+}
+
+.heading-wrapper {
+  font-family: Inter;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+  box-shadow: 0 4px 5px #888888;
+  width: 100%;
+  text-align: left;
+  padding: 8px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.close-form-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #fff;
+}
+.input-form-section {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 8px 8px;
+  margin-bottom: 16px;
+}
+.sub-heading-wrapper {
+  padding: 8px 8px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.input-container {
+  padding: 0 8px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  margin: 12px 0;
+}
+.label-tag {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.input-tag {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+input[type="text"] {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 8px 8px;
+  width: 100%;
+}
+input[type="file"] {
+  background-color: #fff;
+}
+.action-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 16px;
+  width: 100%;
+  padding: 0 8px;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.cancel-button {
+  border: 1px solid #d1d5db;
+  color: #d1d5db;
+  background-color: #fff;
+}
+.save-button {
+  background-color: #4f46e5;
+  color: #d1d5db;
+}
