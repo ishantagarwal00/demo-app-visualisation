@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Graph Visualization Library Evaluation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project, I have evaluated several graph visualization libraries to find a suitable one for our SaaS application. Here is a list of the evaluated libraries, their pros and cons, and the reasoning behind our decision.
 
-## Available Scripts
+## Evaluated Libraries
 
-In the project directory, you can run:
+1. **react-d3-graph**
 
-### `npm start`
+   - Pros:
+     - Easy to use and simple API
+     - Customizable with a wide range of options
+     - Supports force-directed and hierarchical layouts
+   - Cons:
+     - Limited community support and updates
+   - Reasoning: Although react-d3-graph offers good features, the limited community support and infrequent updates made it less preferable compared to other options.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **vis.js**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   - Pros:
+     - Provides extensive graph visualization options
+     - Supports various layouts and customizations
+     - Active community and regular updates
+   - Cons:
+     - Complex API with a learning curve
+   - Reasoning: vis.js is a powerful library with many features and strong community support. However, its complex API might not be ideal for a React Redux application that prioritizes simplicity and ease of use.
 
-### `npm test`
+3. **react-vis-network**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Pros:
+     - Designed specifically for React applications
+     - Component-based approach for creating graph visualizations
+     - Decent range of customization options
+   - Cons:
+     - Limited advanced features compared to other libraries
+   - Reasoning: react-vis-network is a suitable choice if you prefer a React-specific library with simpler integration. However, it may lack some advanced features provided by other libraries.
 
-### `npm run build`
+4. **react-flow**
+   - Pros:
+     - Clean API and easy to use
+     - Good community support
+     - Integration with React Redux
+     - Provides necessary features for our use cases
+   - Cons:
+     - N/A
+   - Reasoning: I selected react-flow as it offers a clean API, good community support, and seamless integration with React Redux. It also provides the required features to cover our use cases.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Demo App Visualisation Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Welcome to our demo application! This document will guide you through the setup process and provide instructions for running the project.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Table of Contents
 
-### `npm run eject`
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before getting started, ensure that you have the following software installed on your machine:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js (version 12 or above)
+- npm (Node Package Manager) or yarn
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+1. Clone the repository to your local machine using the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+git clone `https://github.com/ishantagarwal00/demo-app-visualisation.git`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install the project dependencies by running the following command in respective directory:
 
-### Code Splitting
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+To run the SaaS application, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Start the development server:
+   npm start
 
-### Making a Progressive Web App
+2. Open your web browser and visit `http://localhost:3000` to access the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Interact with the application and explore its features.

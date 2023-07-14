@@ -1,5 +1,5 @@
 import React from "react";
-import ReactFlow, { Background } from "reactflow";
+import ReactFlow, { Background, Controls, MiniMap } from "reactflow";
 import TriggerIcon from "../../../src/assets/icons/trigger-icon.svg";
 import UserIcon from "../../../src/assets/icons/user-icon.svg";
 import RedirectIcon from "../../../src/assets/icons/redirect-icon.svg";
@@ -27,6 +27,7 @@ const Canvas = (props) => {
     props.handleNodeChange(id);
     props.handleFormState();
   };
+
   const customNode = (icon, text, id) => {
     return (
       <>
@@ -66,11 +67,29 @@ const Canvas = (props) => {
     });
 
   const initialEdges = [];
+
+  const handleEdgeDoubleClick = (event, edge) => {
+    const { id } = edge;
+    const flowInstance = event.target;
+    const edgeElement = flowInstance.getElementById(id);
+    edgeElement.hidden = !edgeElement.hidden;
+  };
+
   return (
     <>
       <div className="canvas-conatiner">
-        <ReactFlow defaultEdges={initialEdges} defaultNodes={initialNodes}>
+        <ReactFlow
+          defaultEdges={initialEdges}
+          defaultNodes={initialNodes}
+          onEdgeDoubleClick={handleEdgeDoubleClick}
+          zoom={0.8}
+          minZoom={0.2}
+        >
           <Background variant="dots" gap={6} size={1} color="#0000FF" />
+          <MiniMap
+            nodeStrokeColor={(n) => (n.hidden ? "#FF0000" : "#000000")}
+          />
+          <Controls />
         </ReactFlow>
       </div>
     </>
