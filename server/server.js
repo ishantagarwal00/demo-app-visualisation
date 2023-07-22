@@ -135,8 +135,8 @@ const root = {
 // Endpoint for GraphQL
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your React app's URL
-    optionsSuccessStatus: 200, // Some legacy browsers (e.g., IE11) choke on a 204 response
+    origin: "http://localhost:3000",
+    optionsSuccessStatus: 200,
   })
 );
 app.use(
@@ -149,7 +149,7 @@ app.use(
 );
 
 // Start the server
-const port = 4000; // Choose your desired port
+const port = 4000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });

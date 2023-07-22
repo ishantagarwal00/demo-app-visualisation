@@ -1,9 +1,11 @@
 import React from "react";
 import ReactFlow, { Background, Controls, MiniMap } from "reactflow";
+import { useDispatch } from "react-redux";
 import TriggerIcon from "../../../src/assets/icons/trigger-icon.svg";
 import UserIcon from "../../../src/assets/icons/user-icon.svg";
 import RedirectIcon from "../../../src/assets/icons/redirect-icon.svg";
 import { gql, useQuery } from "@apollo/client";
+import { setSelectedNodeId, toggleFormState } from "../../store/store.js";
 
 import "reactflow/dist/style.css";
 import "./Canvas.css";
@@ -17,15 +19,17 @@ const GET_NODES = gql`
   }
 `;
 
-const Canvas = (props) => {
+const Canvas = () => {
+  const dispatch = useDispatch();
+
   const { loading, error, data } = useQuery(GET_NODES);
   if (loading) return "Loading...";
   if (error) return <pre>{error.message}</pre>;
 
   const handleClick = (e) => {
     const id = e.currentTarget.getAttribute("data-id");
-    props.handleNodeChange(id);
-    props.handleFormState();
+    dispatch(setSelectedNodeId(id));
+    dispatch(toggleFormState());
   };
 
   const customNode = (icon, text, id) => {

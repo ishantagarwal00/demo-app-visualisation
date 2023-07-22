@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./NodeConfiguration.css";
 import { gql, useQuery, useMutation } from "@apollo/client";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleFormState } from "../../store/store.js";
 
 const GET_FORM_CONFIGURATION = gql`
   query GetFormConfiguration($nodeId: Int) {
@@ -34,8 +36,12 @@ const SUBMIT_FORM_DATA = gql`
   }
 `;
 
-const NodeConfiguration = (props) => {
-  const nodeIdInt = parseInt(props.selectedNodeId, 10);
+const NodeConfiguration = () => {
+  const dispatch = useDispatch();
+  const selectedNodeId = useSelector((state) => state.canvas.selectedNodeId);
+  const formState = useSelector((state) => state.canvas.formState);
+
+  const nodeIdInt = parseInt(selectedNodeId, 10);
   const {
     loading: configLoading,
     error: configError,
@@ -51,7 +57,7 @@ const NodeConfiguration = (props) => {
     refetch: refetchFormData,
   } = useQuery(GET_FORM_DATA, {
     variables: { nodeId: nodeIdInt },
-    skip: !nodeIdInt, // Skip the query if nodeIdInt is falsy (null or undefined)
+    skip: !nodeIdInt,
   });
 
   const [submitFormData] = useMutation(SUBMIT_FORM_DATA);
@@ -90,7 +96,7 @@ const NodeConfiguration = (props) => {
       nodeId: nodeIdInt,
       data: Object.entries(formValues).map(([key, value]) => ({
         key,
-        value: String(value), // Convert the value to a string
+        value: String(value),
       })),
     };
 
@@ -117,7 +123,7 @@ const NodeConfiguration = (props) => {
       const file = files[0];
       setFormValues((prevValues) => ({
         ...prevValues,
-        [name]: file, // Store the file object directly
+        [name]: file,
       }));
     } else {
       setFormValues((prevValues) => ({
@@ -129,20 +135,13 @@ const NodeConfiguration = (props) => {
 
   return (
     <>
-      {/* {showPopup && (
-        <div className="popup">
-          <div className="popup-content">
-            <span className="close" onClick={() => setShowPopup(false)}>
-              &times;
-            </span>
-            <p>Form details submitted successfully!</p>
-          </div>
-        </div>
-      )} */}
       <div className="configuration-container">
         <div className="heading-wrapper">
           <div>{heading}</div>
-          <button className="close-form-button" onClick={props.handleFormState}>
+          <button
+            className="close-form-button"
+            onClick={() => dispatch(toggleFormState())}
+          >
             ✖
           </button>
         </div>
@@ -178,7 +177,7 @@ const NodeConfiguration = (props) => {
             <div>
               <button
                 className="button cancel-button"
-                onClick={props.handleFormState}
+                onClick={() => dispatch(toggleFormState())}
               >
                 CANCEL
               </button>

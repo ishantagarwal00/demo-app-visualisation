@@ -8,7 +8,7 @@ body {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: 0.1fr 2fr 1.5fr;
-  grid-template-rows: 0.5fr 2.5fr;
+  /* grid-template-rows: 0.5fr 2.5fr; */
   grid-template-areas:
     "navbar header header"
     "navbar canvas canvas";

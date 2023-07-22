@@ -1,24 +1,24 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Canvas from "../../components/Canvas/Canvas";
 import NodeConfiguration from "../../components/NodeConfiguration/NodeConfiguration";
+
+import { toggleFormState, setSelectedNodeId } from "../../store/store.js";
 import "./signup.css";
 
 const Signup = () => {
-  const [selectedNodeId, setSelectedNodeId] = useState(null);
-  const [formState, setFormState] = useState(false);
+  const dispatch = useDispatch();
+  const selectedNodeId = useSelector((state) => state.canvas.selectedNodeId);
+  const formState = useSelector((state) => state.canvas.formState);
 
   const handleFormState = () => {
-    if (formState) {
-      setFormState(false);
-    } else {
-      setFormState(true);
-    }
+    dispatch(toggleFormState());
   };
 
   const handleNodeChange = (data) => {
-    setSelectedNodeId(data);
+    dispatch(setSelectedNodeId(data));
   };
   const handleClass = useMemo(() => {
     if (formState) {
